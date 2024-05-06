@@ -3,7 +3,7 @@ import { RiContactsFill } from "react-icons/ri";
 import { FaPhoneVolume } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactsOps";
+import { deleteContact } from "../../redux/contacts/operations";
 
 const Contact = ({ data: { name, number, id } }) => {
   const dispatch = useDispatch();

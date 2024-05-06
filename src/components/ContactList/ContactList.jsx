@@ -1,11 +1,13 @@
 import Contact from "../Contact/Contact.jsx";
 import css from "./ContactList.module.css";
-import { useSelector } from "react-redux";
-import { selectIsLoading } from "../../redux/contactsSlice.js";
+import { useSelector, useDispatch } from "react-redux";
+import { selectIsLoading } from "../../redux/contacts/selectors.js";
 import { ThreeCircles } from "react-loader-spinner";
-import { selectFilteredContacts } from "../../redux/contactsSlice.js";
+import { selectFilteredContacts } from "../../redux/contacts/selectors.js";
+import { useEffect } from "react";
+import { fetchContacts } from "../../redux/contacts/operations.js";
 
-const loader = (
+export const loader = (
   <ThreeCircles
     visible={true}
     height="100"
@@ -18,6 +20,11 @@ const loader = (
 );
 const ContactList = () => {
   const isLoading = useSelector(selectIsLoading);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const filteredContacts = useSelector(selectFilteredContacts);
 

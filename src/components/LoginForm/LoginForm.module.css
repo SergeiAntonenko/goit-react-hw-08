@@ -1,22 +1,16 @@
-.formik-container {
-  padding: 20px 0;
-}
-
 .form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  max-width: 300px;
-  border: 2px solid #111111;
+  margin: 0 auto;
+  max-width: 350px;
   padding: 20px;
-  border-radius: 10px;
 }
 
-.form-label-container {
+.form-lable {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  gap: 5px;
+  margin-bottom: 10px;
 }
 
 .form-input {
@@ -24,6 +18,15 @@
   border-radius: 10px;
   outline: none;
   border: 1px solid #111;
+}
+
+.form-input:hover,
+.form-input:focus {
+  outline: 1px solid #111;
+}
+
+.error-msg {
+  color: red;
 }
 
 .form-btn {
@@ -39,9 +42,5 @@
 }
 
 .form-btn:hover {
-  background-color: #1c1a6b;
-}
-
-.error-msg {
-  color: red;
+  background-color: #471da7;
 }

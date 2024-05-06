@@ -22,4 +22,13 @@
 .contacts-item-btn {
   padding: 5px 10px;
   font-weight: 500;
+  background-color: #5925d7;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.contacts-item-btn:hover {
+  background-color: #1c1a6b;
 }
