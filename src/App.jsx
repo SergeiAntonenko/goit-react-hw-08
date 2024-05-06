@@ -10,6 +10,7 @@ import Layout from "./components/Layout/Layout.jsx";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute.jsx";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 import { refreshUser } from "./redux/auth/operations.js";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ const App = () => {
               </PrivateRoute>
             }
           />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </Layout>
