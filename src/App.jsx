@@ -1,5 +1,5 @@
 import { loader } from "./components/ContactList/ContactList.jsx";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Suspense, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage.jsx";
@@ -11,15 +11,21 @@ import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute.jsx";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 import { refreshUser } from "./redux/auth/operations.js";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
+import { selectIsRefreshing } from "./redux/auth/selectors.js";
 
 const App = () => {
   const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
+  return isRefreshing ? (
+    <>
+      <p>Refreshing user...</p>
+    </>
+  ) : (
     <Layout>
       <Suspense fallback={loader}>
         <Routes>

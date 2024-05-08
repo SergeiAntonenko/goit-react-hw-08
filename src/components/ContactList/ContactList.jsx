@@ -28,7 +28,7 @@ const ContactList = () => {
 
   const filteredContacts = useSelector(selectFilteredContacts);
 
-  return (
+  return filteredContacts ? (
     <ul className={css["contacts-list"]}>
       {filteredContacts.map((contact) => (
         <li key={contact.id}>
@@ -37,6 +37,10 @@ const ContactList = () => {
       ))}
       {isLoading && loader}
     </ul>
+  ) : (
+    <>
+      <p>Loading...</p>
+    </>
   );
 };
 

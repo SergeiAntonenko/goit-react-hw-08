@@ -35,10 +35,17 @@ export const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
       })
+      .addCase(refreshUser.pending, (state, action) => {
+        state.isRefreshing = true;
+      })
       .addCase(refreshUser.fulfilled, (state, action) => {
+        state.isRefreshing = false;
         state.loading = false;
         state.user = action.payload;
         state.isLoggedIn = true;
+      })
+      .addCase(refreshUser.rejected, (state) => {
+        state.isRefreshing = false;
       })
       .addCase(logout.fulfilled, (state, action) => {
         return AUTH_INITIAL_STATE;
