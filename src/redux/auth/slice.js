@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login, logout, refreshUser, register } from "./operations";
+import { login, logOut, refreshUser, register } from "./operations";
 
 const AUTH_INITIAL_STATE = {
   user: {
@@ -47,7 +47,7 @@ export const authSlice = createSlice({
       .addCase(refreshUser.rejected, (state) => {
         state.isRefreshing = false;
       })
-      .addCase(logout.fulfilled, (state, action) => {
+      .addCase(logOut.fulfilled, (state, action) => {
         return AUTH_INITIAL_STATE;
       })
       .addMatcher(isPending, (state, action) => {

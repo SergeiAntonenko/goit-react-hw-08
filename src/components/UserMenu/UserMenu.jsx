@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import css from "./UserMenu.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../redux/auth/operations";
+import { logOut } from "../../redux/auth/operations";
 import { selectUser } from "../../redux/auth/selectors";
 
 const UserMenu = () => {
@@ -9,7 +9,7 @@ const UserMenu = () => {
   const userData = useSelector(selectUser);
 
   const onLogout = () => {
-    dispatch(logout());
+    dispatch(logOut());
   };
 
   return (
